@@ -36,7 +36,7 @@ class SimplyLinkedList:
             print(f'{currentNode.data}')
             currentNode = currentNode.nextNode
 
-    def addingNode(self, data):
+    def addingNode(self, data): # Adiciona elementos na lista depois do node
         newNode = ListNode(data, None)
         if self.size == 0: # Valida se a lista está vazia
             self.firstNode = newNode
@@ -56,7 +56,7 @@ class SimplyLinkedList:
         self.size += 1
         return True
 
-    def insertNode(self, data):
+    def insertNode(self, data): # Insere elementos na lista antes do node
         newNode = ListNode(data, None)
         if self.size == 0: # Tratamento caso a lista esteja vazia
             self.firstNode = newNode
