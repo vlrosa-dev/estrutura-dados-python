@@ -8,16 +8,16 @@ if __name__ == '__main__':
     copia = ArrayStack()
     
     print('[', end="")
-    while(not s.is_empty()):
+    while (not s.is_empty()):
       print(s.top(), end=" ")
       copia.push(s.pop())
     
-    while(not copia.is_empty()):
+    while (not copia.is_empty()):
         s.push(copia.pop())
     print(']\n')
     copia = None
 
-  def copyStackArray(self, array):
+  def copyStackArray(array):
     copia = ArrayStack()
     apoio = ArrayStack()
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     return copia
 
-  def copyStackArrayWithSimplyLinkedList(self, array):
+  def copyStackArrayWithSimplyLinkedList(array):
     copia = ArrayStack()
     apoio = SimplyLinkedList()
 
@@ -46,4 +46,4 @@ if __name__ == '__main__':
 
     apoio = None
     
-    return Copia
+    return copia
