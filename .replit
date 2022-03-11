@@ -1,2 +1,2 @@
 language = "python"
-run = "python tad-array-stack/main.py"
+run = "python tad-array-queue/main.py"
