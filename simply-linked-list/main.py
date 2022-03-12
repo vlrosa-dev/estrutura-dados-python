@@ -52,27 +52,10 @@ if __name__ == '__main__':
                 return False
     
     '''03 Verificar se a lista lst2 é uma sublista de lst1'''
-    def subLista(lst1, lst2):
+    def subList(lst1, lst2):
         pass
 
-    '''06 Adicionar elemento ao fim da lista'''
-    def addingList(lst1, data):
-        lst1.last_Node()
-        lst1.addingNode(data)
-
-    '''08 Indicar se o elemento existe na lista'''
-    def verifyDataInList(lst, data):
-        if lst.size == 0:
-            return False
-        else:
-            lst.first_Node() 
-            while not lst.isUndefinedIterator():
-                if lst.iterator.data == data:
-                    return True
-                lst.nextNode()
-            return False
-
-    '''18 Verificar se a lista esta ordenada de forma crescente'''
+    '''05 Verificar se a lista esta ordenada de forma crescente'''
     def verifyListOrderAscending(lst):
         if lst.size == 0:
             return False
@@ -86,16 +69,86 @@ if __name__ == '__main__':
                 lst.nextNode()
             return True
 
+    '''06 Adicionar elemento ao fim da lista'''
+    def addingList(lst1, data):
+        lst1.last_Node()
+        lst1.addingNode(data)
+
+    '''07 Substituir conteúdo atual do iterador pelo elemento'''
+    def substituteIteratorData(lst, data):
+        if lst.size == 0:
+            return False
+        else:
+            lst.iterator.data = data
+
+    '''08 Indicar se o elemento existe na lista'''
+    def verifyDataInList(lst, data):
+        if lst.size == 0:
+            return False
+        else:
+            lst.first_Node() 
+            while not lst.isUndefinedIterator():
+                if lst.iterator.data == data:
+                    return True
+                lst.nextNode()
+            return False
+
+    '''09 Exibe todos os elementos da lista, utilizando a operação posLista para avançar'''
+    def viewList(lst):
+        if lst.size == 0:
+            print('Lista Vazia!')
+        else:
+            i = 1
+            while i <= lst.size:
+                lst.moveNode(i)
+                print(lst.iterator.data)
+                i += 1
+
+    '''10 Coloca o iterador na posição anterior à atual'''
+    def setIteratorPositionPrevious(lst):
+        if lst.size == 0:
+            return False
+        elif lst.firstNode == lst.lastNode:
+            return False
+        else:
+            currentIterator = lst.firstNode
+            while currentIterator.nextNode != lst.iterator:
+                currentIterator = currentIterator.nextNode
+            lst.iterator = currentIterator
+
+    '''11 Retorna a posição do iterador na lista'''
+    def returnPositionIterator(lst):
+        if lst.size == 0:
+            print('Lista vazia!')
+        else:
+            cont = 0
+            currentIterator = lst.firstNode
+            while currentIterator != lst.iterator:
+                cont += 1
+                currentIterator = currentIterator.nextNode
+            cont += 1
+        return cont
+
+    '''19 Elimina da lista lst1 todos os elementos que aparecem na lista lst2'''
+    def differenceList(lst1, lst2):
+        pass
+
     # Instanciando objeto Lista
+    #simplyLinkedList2 = SimplyLinkedList()
     simplyLinkedList = SimplyLinkedList()
-    simplyLinkedList2 = SimplyLinkedList()
 
     # Adicionando elementos na lista 1
     simplyLinkedList.addingNode(1)
     simplyLinkedList.addingNode(2)
     simplyLinkedList.addingNode(3)
+    
+    #setIteratorPositionPrevious(simplyLinkedList)
+    
+    print(f'Posição: {returnPositionIterator(simplyLinkedList)}')
+
+    #substituteIteratorData(simplyLinkedList, 10)
 
     # Adicionando elementos na lista 2
-    simplyLinkedList2.addingNode(3)
-    simplyLinkedList2.addingNode(2)
-    simplyLinkedList2.addingNode(1)
+    # simplyLinkedList2.addingNode(3)
+    # simplyLinkedList2.addingNode(2)
+    # simplyLinkedList2.addingNode(1)
