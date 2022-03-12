@@ -12,15 +12,15 @@ class SimplyLinkedList:
         else:
             self.size = 0
 
-    def firstNode(self):
+    def first_Node(self):
         self.iterator = self.firstNode
 
-    def lastNode(self):
+    def last_Node(self):
         self.iterator = self.lastNode
 
     def nextNode(self):
         if self.iterator:
-            self.iterator = self.iterator.ListNode.getNextNode()
+            self.iterator = self.iterator.getNextNode()
             return True
 
     def isUndefinedIterator(self): # Verifica se o iterador não está definido
