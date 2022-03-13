@@ -134,21 +134,9 @@ if __name__ == '__main__':
         pass
 
     # Instanciando objeto Lista
-    #simplyLinkedList2 = SimplyLinkedList()
     simplyLinkedList = SimplyLinkedList()
 
     # Adicionando elementos na lista 1
     simplyLinkedList.addingNode(1)
     simplyLinkedList.addingNode(2)
     simplyLinkedList.addingNode(3)
-    
-    #setIteratorPositionPrevious(simplyLinkedList)
-    
-    print(f'Posição: {returnPositionIterator(simplyLinkedList)}')
-
-    #substituteIteratorData(simplyLinkedList, 10)
-
-    # Adicionando elementos na lista 2
-    # simplyLinkedList2.addingNode(3)
-    # simplyLinkedList2.addingNode(2)
-    # simplyLinkedList2.addingNode(1)

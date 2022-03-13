@@ -18,14 +18,14 @@ class ArrayQueue:
       """Return True if the queue is empty."""
       return self._size == 0
 
-    def first(self): """Return first element in queue"""
+    def first(self):
       if self.is_empty():
         print('Queue is empty!')
         return None
       else:
         return self._data[self._first]
 
-    def dequeue(self): """Remove and return the first element in queue""" 
+    def dequeue(self):
       if self.is_empty():
         print('Queue is empty!')
         return None
@@ -41,7 +41,7 @@ class ArrayQueue:
         self._size -= 1
         return answer
 
-    def enqueue(self, e): """Added element in the last position"""
+    def enqueue(self, e):
       if self._size == len(self._data):
         self._resize(2 * len(self.data))     # double the array size
       if(self._size == 0):  # fila vazia
@@ -53,7 +53,7 @@ class ArrayQueue:
         self._data[self._last] = e  # adicona e como ultimo elemento na fila
       self._size += 1
 
-    def _resize(self, cap): """Resize to a new list of capacity >= len(self)."""
+    def _resize(self, cap):
       old = self._data                       # keep track of existing list
       self._data = [None] * cap              # allocate list with new capacity
       walk = self._first

@@ -1,5 +1,5 @@
 
-from simplyLinkedList import SimplyLinkedList
+from tadSimplyLinkedList import SimplyLinkedList
 from arrayStack import ArrayStack
 
 if __name__ == '__main__':
@@ -29,7 +29,6 @@ if __name__ == '__main__':
       array.push(apoio.pop())
 
     apoio = None
-
     return copia
 
   def copyStackArrayWithSimplyLinkedList(array):
@@ -45,5 +44,4 @@ if __name__ == '__main__':
       apoio.removeNode()
 
     apoio = None
-    
     return copia
