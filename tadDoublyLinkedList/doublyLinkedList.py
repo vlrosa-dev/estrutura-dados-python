@@ -1,5 +1,5 @@
 
-from tadDoublyLinkedList import ListNode
+from listNode import ListNode
 
 class DoublyLinkedListIterator:
     def __init__(self, _firstNode = None):
@@ -25,19 +25,52 @@ class DoublyLinkedListIterator:
     def isUndefinedIterator(self):
         if self.iterator == None:
             return True
-        else
+        else:
             return False
+    
+    def printNode(self):
+        currentNode = self.firstNode
+        while currentNode:
+            print(f'{currentNode.data}')
+            currentNode = currentNode.nextNode
 
     def addNode(self, data):
-        newNode = ListNode()
+        newNode = ListNode(data, None, None)
         if self.size == 0:
             self.firstNode = None
             self.lastNode = None
             self.iterator = None
-        elif self.iterator = self.firstNode:
 
-    def elimNode(self, data):
-        pass
+        elif self.iterator == self.lastNode:
+            newNode.nextNode = self.iterator
+            self.firstNode = newNode
+            self.iterator = newNode
+
+        else:
+            newNode.nextNode = self.iterator
+            newNode.antNode = self.iterator.antNode
+            self.iterator.antNode = newNode
+            self.iterator.antNode.nextNode = newNode
+
+        self.size += 1
+        return True      
+
+    def elimNode(self):
+        if self.iterator == self.lastNode:
+            if self.firstNode == self.lastNode:
+                self.firstNode = None
+                self.lastNode = None
+                self.iterator = None
+            else:
+                self.firstNode = self.iterator.nextNode
+                self.iterator.nextNode.antNode = None
+                self.iterator = self.iterator.nextNode
+        else:
+            if self.iterator == self.lastNode:
+                self.iterator.antNode.nextNode = None
+            else:
+                self.iterator.antNode.nextNode = self.iterator.nextNode
+                self.iterator.nextNode.antNode = self.iterator
 
     def insNode(self, data):
         pass
