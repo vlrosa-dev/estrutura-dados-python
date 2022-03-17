@@ -21,5 +21,3 @@
 
 ## TAD Pilha
 - Lista de exercicios não iniciada
-
-## Trabalho
