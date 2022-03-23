@@ -1,2 +1,2 @@
 language = "python"
-run = "python tadDoublyLinkedList/main.py"
+run = "python tadArrayQueue/main.py"
