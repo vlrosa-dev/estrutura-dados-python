@@ -163,7 +163,7 @@ class DoublyLinkedListIterator:
             Iterator is under an innermost element
             '''
             self.iterator.antNode.nextNode = self.iterator.nextNode
-            self.iterator.nextNode.antNode = self.iterator
+            self.iterator.nextNode.antNode = self.iterator.antNode
             self.iterator = self.iterator.nextNode
         
         self.size -= 1
