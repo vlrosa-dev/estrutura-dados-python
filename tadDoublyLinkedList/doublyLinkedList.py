@@ -131,43 +131,49 @@ class DoublyLinkedListIterator:
         :param void
         :return True or False
         '''
-        if self.iterator == self.lastNode:
+        if self.size == 0:
             '''
-            Checks if iterator is under last node
+            Check if list is empty
             '''
-            if self.firstNode == self.lastNode:
+            print(f'list is empty!')
+        else:
+            if self.iterator == self.lastNode:
                 '''
-                Check if iterator is under last node
+                Checks if iterator is under last node
                 '''
-                self.firstNode = None
-                self.lastNode = None
-                self.iterator = None
+                if self.firstNode == self.lastNode:
+                    '''
+                    Check if iterator is under last node
+                    '''
+                    self.firstNode = None
+                    self.lastNode = None
+                    self.iterator = None
+                else:
+                    '''
+                    Iterator is under last node, but has many elements
+                    '''
+                    self.iterator.antNode.nextNode = None
+                    self.lastNode = self.iterator.antNode
+                    self.iterator = self.iterator.antNode
+
+            elif self.iterator == self.firstNode:
+                '''
+                Check if iterator is under first node
+                '''
+                self.iterator.nextNode.antNode = None
+                self.firstNode = self.iterator.nextNode
+                self.iterator = self.iterator.nextNode
+                
             else:
                 '''
-                Iterator is under last node, but has many elements
+                Iterator is under an innermost element
                 '''
-                self.iterator.antNode.nextNode = None
-                self.lastNode = self.iterator.antNode
-                self.iterator = self.iterator.antNode
-
-        elif self.iterator == self.firstNode:
-            '''
-            Check if iterator is under first node
-            '''
-            self.iterator.nextNode.antNode = None
-            self.firstNode = self.iterator.nextNode
-            self.iterator = self.iterator.nextNode
-            
-        else:
-            '''
-            Iterator is under an innermost element
-            '''
-            self.iterator.antNode.nextNode = self.iterator.nextNode
-            self.iterator.nextNode.antNode = self.iterator.antNode
-            self.iterator = self.iterator.nextNode
+                self.iterator.antNode.nextNode = self.iterator.nextNode
+                self.iterator.nextNode.antNode = self.iterator.antNode
+                self.iterator = self.iterator.nextNode
         
-        self.size -= 1
-        return True
+            self.size -= 1
+            return True
 
     def posNode(self, position):
         '''
@@ -175,17 +181,23 @@ class DoublyLinkedListIterator:
         :param position: int
         :return True or False
         '''
-        if position >= 1 and position <= self.size:
+        if self.size == 0:
             '''
-            Check if parameter position is greater than or equal to 1 and position is less than or
-            equal to size.
+            Check if list is empty
             '''
-            i = 1
-            self.iterator = self.firstNode
-            while i < position:
-                if self.iterator.nextNode != None:
-                    self.iterator = self.iterator.nextNode
-                    i += 1
-            return True
+            print(f'List is empty!')
         else:
-            return False
+            if position >= 1 and position <= self.size:
+                '''
+                Check if parameter position is greater than or equal to 1 and position is less than or
+                equal to size.
+                '''
+                i = 1
+                self.iterator = self.firstNode
+                while i < position:
+                    if self.iterator.nextNode != None:
+                        self.iterator = self.iterator.nextNode
+                        i += 1
+                return True
+            else:
+                return False

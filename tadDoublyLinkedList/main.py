@@ -4,7 +4,6 @@ from doublyLinkedList import DoublyLinkedListIterator
 if __name__ == '__main__':
 
     list = DoublyLinkedListIterator()
-
     '''
     Adding multiple values - addNode()
     '''
