@@ -47,6 +47,7 @@ if __name__ == '__main__':
     apoio = None
     return copia
 
+  '''11 - Retornar true(1) se o conteúdo da pilha é um palíndrome e false(0) caso contrário'''
   def verifyPalindromeStack(stack):
     copyQueue = ArrayQueue()
     copyStack = ArrayStack()
@@ -64,6 +65,7 @@ if __name__ == '__main__':
     print(f'É um palindromo')
     return True
 
+  '''09 - Eliminar da pilha todas as ocorrências do elemento elem.'''
   def removeAllOcorrencyElementStack(stack, elem):
     copyStack = ArrayStack()
 
