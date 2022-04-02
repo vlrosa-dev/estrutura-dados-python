@@ -41,8 +41,7 @@ if __name__ == "__main__":
 
     """02 Concatenar filas"""
     def concatQueue(lst1, lst2):
-      copia = ArrayQueue
-      copia = ArrayQueue(lst2)
+      copia = lst2
       while (not lst2.is_empty()):
         lst1.enqueue(lst2.dequeue())
       while (not copia.is_empty()):
@@ -103,9 +102,14 @@ if __name__ == "__main__":
     
 
     queue = ArrayQueue()
+    queue2 = ArrayQueue()
     queue.enqueue(10)
     queue.enqueue(20)
     queue.enqueue(30)
     queue.enqueue(40)
+    queue2.enqueue(50)
+    queue2.enqueue(60)
+    queue2.enqueue(70)
     queue.dequeue()
+    concatQueue(queue, queue2)
     printQueue(queue)

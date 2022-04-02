@@ -138,13 +138,13 @@ class DoublyLinkedListIterator:
             '''
             print(f'list is empty!')
         else:
-            if self.iterator == self.lastNode:
+            if self.iterator == self.lastNode: # self.iterator == self.firstNode
                 '''
                 Checks if iterator is under last node
                 '''
                 if self.firstNode == self.lastNode:
                     '''
-                    Check if iterator is under last node
+                    Check if iterator is under last node, but one element
                     '''
                     self.firstNode = None
                     self.lastNode = None
