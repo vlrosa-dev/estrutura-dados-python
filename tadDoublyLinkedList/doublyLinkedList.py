@@ -82,6 +82,7 @@ class DoublyLinkedListIterator:
             '''
             newNode.antNode = self.iterator
             newNode.nextNode = self.iterator.nextNode
+            self.iterator.nextNode.antNode = newNode
             self.iterator.nextNode = newNode
             self.iterator = newNode
 
