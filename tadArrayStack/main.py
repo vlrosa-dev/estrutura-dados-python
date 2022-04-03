@@ -18,7 +18,7 @@ if __name__ == '__main__':
     print(']\n')
     copia = None
 
-  def copyStackArray(stack):
+  def copyStack(stack):
     copia = ArrayStack()
     apoio = ArrayStack()
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     apoio = None
     return copia
 
-  def copyStackArrayWithSimplyLinkedList(stack):
+  def copyStackWithSimplyLinkedList(stack):
     copia = ArrayStack()
     apoio = SimplyLinkedList()
 
@@ -47,7 +47,6 @@ if __name__ == '__main__':
     apoio = None
     return copia
 
-  '''11 - Retornar true(1) se o conteúdo da pilha é um palíndrome e false(0) caso contrário'''
   def verifyPalindromeStack(stack):
     copyQueue = ArrayQueue()
     copyStack = ArrayStack()
@@ -65,7 +64,6 @@ if __name__ == '__main__':
     print(f'É um palindromo')
     return True
 
-  '''09 - Eliminar da pilha todas as ocorrências do elemento elem.'''
   def removeAllOcorrencyElementStack(stack, elem):
     copyStack = ArrayStack()
 
@@ -78,9 +76,3 @@ if __name__ == '__main__':
       stack.push(stack.pop())
 
     return True
-
-  stack = ArrayStack()
-  stack.push(10)
-  stack.push(20)
-  stack.push(10)
-  printStack(stack)
