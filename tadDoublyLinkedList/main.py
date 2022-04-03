@@ -1,3 +1,10 @@
+'''
+    Desenvolvido por:
+        - Lucas Azevedo Zortea
+        - Marcelo Dalvi
+        - Rhayane Couto Fabres
+        - Victor Luis Moreira Rosa
+'''
 
 from doublyLinkedList import DoublyLinkedListIterator
 

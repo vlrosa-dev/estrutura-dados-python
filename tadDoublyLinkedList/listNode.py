@@ -1,3 +1,10 @@
+'''
+    Desenvolvido por:
+        - Lucas Azevedo Zortea
+        - Marcelo Dalvi
+        - Rhayane Couto Fabres
+        - Victor Luis Moreira Rosa
+'''
 
 class ListNode:
     def __init__(self, data, nextNode = None, antNode = None):
