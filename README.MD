@@ -19,7 +19,8 @@
     - isUndefinedIterator(verifica se o iterador está indefinido)
 
 ## TAD Lista Duplamente Encadeada (DoublyLinkedList)
-    Esse tipo de lista se apresenta de maneira encadeada, mas um pouco diferente da primeira apresentada, o seu nó faz referência para o próximo nó e nó anterior.
+    Esse tipo de lista se apresenta de maneira encadeada, mas um pouco diferente 
+    da primeira apresentada, o seu nó faz referência para o próximo nó e nó anterior.
 
     Segue estrutura do node(nó):
     - elemento(informação que será inserida no nó)
@@ -37,5 +38,20 @@
     - isUndefinedIterator(verifica se o iterador está indefinido)
 
 ## TAD Fila (Queue)
+    Possui o mesmo conceito de uma fila, enfileira os elementos no conceito FIFO.
+
+    Segue estrutura básica da fila(Queue):
+    - isEmpty(verifica se a fila está vazia)
+    - enqueue(enfileira o elemento ao fim da fila)
+    - dequeue(retorna e remove o elemento do inicio da fila (FIFO))
+    - resize(redimensiona o tamanho da fila)
+    - first(retorna o primeiro elemento da fila)
 
 ## TAD Pilha (Stack)
+    Possui o mesmo conceito de uma pilha (empilhar elementos), é do tipo LIFO.
+
+    Segue estrutura básica da pilha(Stack):
+    - top(retorna o elemento do topo da pilha)
+    - pop(retorna e remove o elemento do topo da pilha)
+    - push(adiciona o elemento no topo da pilha)
+    - is_Empty(verifica se a pilha está vazia)
