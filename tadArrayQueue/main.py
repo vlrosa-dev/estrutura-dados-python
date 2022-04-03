@@ -2,7 +2,7 @@ from arrayQueue import ArrayQueue
 
 if __name__ == "__main__":
   
-    def printQueue(lst):
+    def printWithQueue(lst):
       copia = ArrayQueue()
       print('[', end="")
       while(not lst.is_empty()):
@@ -13,15 +13,14 @@ if __name__ == "__main__":
       copia = None
       print(']\n')
 
-    def printArray(lst):
+    def printWithArray(lst):
       lst.first_Node()
       while not lst.isUndefinedIterator():
         print(lst.get_iterator().getData(), end=" ")
         lst.nextNode()
       print('\n')
 
-    """01 Insere o elemento na fila dada uma posição"""
-    def insertElementInPosition(lst, element, position):
+    def insertElementInPositionSpecific(lst, element, position):
       copy = ArrayQueue()
       aux = 0
       if len(lst) == 0 and position == 0:
@@ -39,8 +38,7 @@ if __name__ == "__main__":
       else:
         print('Invalid Position!')
 
-    """02 Concatenar filas"""
-    def concatQueue(lst1, lst2):
+    def concatenateQueues(lst1, lst2):
       copia = lst2
       while (not lst2.is_empty()):
         lst1.enqueue(lst2.dequeue())
@@ -48,8 +46,7 @@ if __name__ == "__main__":
         lst2.enqueue(copia.dequeue())
       copia = None
 
-    """03 Posiciona o elemento na primeira posição da fila"""
-    def firstQueue(array, element):
+    def placeElementInFirstPosition(array, element):
       copia = ArrayQueue()
       copia.enqueue(element)
       
@@ -60,8 +57,7 @@ if __name__ == "__main__":
         array.enqueue(copia.dequeue())
       copia = None
 
-    """04 Verifica se o elemento existe na fila"""
-    def searchElement(array, element):
+    def searchElementInQueue(array, element):
       if array.is_empty:
         return False
       else:
@@ -70,46 +66,14 @@ if __name__ == "__main__":
             return True
         return False
 
-    def adicFilaPos(fila, elem, pos):
-      if pos > 0 and pos <= len(fila):
-          filaAux = ArrayQueue()
-          cont = 1
-          
-          while (not fila.is_empty()):
-              if cont == pos:
-                  filaAux.enqueue(elem)
-                  cont += 1
-              else:
-                  filaAux.enqueue(fila.dequeue())
-                  cont += 1
-                      
-          while (not filaAux.is_empty()):
-              fila.enqueue(filaAux.dequeue())
-      else:
-          print(f'Posição inválida')
-
-    def elimElemento(fila, elem):
+    def removeElementInQueue(fila, elem):
       filaApoio = ArrayQueue()
       
       while not fila.is_empty():
-          data = fila.dequeue()
-          if data != elem:
-              filaApoio.enqueue(data)
+        data = fila.dequeue()
+        if data != elem:
+          filaApoio.enqueue(data)
               
       while not filaApoio.is_empty():
-          fila.enqueue(filaApoio.dequeue())
+        fila.enqueue(filaApoio.dequeue())
       return True
-    
-
-    queue = ArrayQueue()
-    queue2 = ArrayQueue()
-    queue.enqueue(10)
-    queue.enqueue(20)
-    queue.enqueue(30)
-    queue.enqueue(40)
-    queue2.enqueue(50)
-    queue2.enqueue(60)
-    queue2.enqueue(70)
-    queue.dequeue()
-    concatQueue(queue, queue2)
-    printQueue(queue)
