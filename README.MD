@@ -55,3 +55,6 @@
     - pop(retorna e remove o elemento do topo da pilha)
     - push(adiciona o elemento no topo da pilha)
     - is_Empty(verifica se a pilha está vazia)
+
+## Recursividade
+    - Realiza uma pilha de chamadas (empilhar).

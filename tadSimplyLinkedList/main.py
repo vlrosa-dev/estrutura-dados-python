@@ -54,7 +54,7 @@ if __name__ == '__main__':
     '''03 Verificar se a lista lst2 é uma sublista de lst1'''
     def subList(lst1, lst2):
         pass
-
+        
     '''05 Verificar se a lista esta ordenada de forma crescente'''
     def verifyListOrderAscending(lst):
         if lst.size == 0:
