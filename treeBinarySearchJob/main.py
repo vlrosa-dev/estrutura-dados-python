@@ -1,70 +1,42 @@
-'''
-    Desenvolvido por:
-        - Lucas Zortea
-        - Marcelo Dalvi
-        - Rhayane Fabres
-        - Victor Rosa
-'''
 
 import os
 from nodeABB import NodeABB
+from arrayQueue import ArrayQueue
 
 if __name__ == '__main__':
     
     clear = lambda: os.system('cls')
     clear()
-    
-    def menu_options():
-        pass
 
-    def altura(arbin:NodeABB):
-        if arbin is None:
-            return -1
-        else:
-            alturaEsquerda = altura(arbin.esqArbin())
-            alturaDireita = altura(arbin.dirArbin())
-        if alturaEsquerda > alturaDireita:
-            return alturaEsquerda + 1
-        else:
-            return alturaDireita + 1
-
-    def preOrder(node:NodeABB):
-        if node is not None:
-            print(node._data, end=" ")
-            preOrder(node._esq)
-            preOrder(node._dir)
+    def pre_order(tree:NodeABB):
+        if tree is not None:
+            print(tree._data, end=" ")
+            pre_order(tree._esq)
+            pre_order(tree._dir)
     
-    def inOrder(node:NodeABB):
-        if node is not None:
-            inOrder(node._esq)
-            print(node._data, end=" ")
-            inOrder(node._dir)
+    def in_order(tree:NodeABB):
+        if tree is not None:
+            in_order(tree._esq)
+            print(tree._data, end=" ")
+            in_order(tree._dir)
             
-    def posOrder(node:NodeABB):
-        if node is not None:
-            posOrder(node._esq)
-            posOrder(node._dir)
-            print(node._data, end=" ")
+    def pos_order(tree:NodeABB):
+        if tree is not None:
+            pos_order(tree._esq)
+            pos_order(tree._dir)
+            print(tree._data, end=" ")
 
-    def inLevel(node:NodeABB, level):
-        if node is not None:
-            if level == 1:
-                print(node._data,end=" ")
-            elif level > 1:
-                inLevel(node._esq, level - 1)
-                inLevel(node._dir, level - 1)
-    
-    def open_file():
-        file = open("C:\\Users\Victo\dev\estrutura-dados-python\\treeBinarySearchJob\\numbers-tree.txt")
-        first_node = int(file.readline().rstrip())
-        tree = NodeABB(first_node)
+    def level_order(tree:NodeABB):
+        queue = ArrayQueue()
+        queue.enqueue(tree)
         
-        for line in file:
-            node = NodeABB(int(line.rstrip()))
-            tree.add(node)
-        file.close()
-
-        return tree
+        while len(queue):
+            tree = queue.dequeue()
+            if tree._esq:
+                queue.enqueue(tree._esq)
+            if tree._dir:
+                queue.enqueue(tree._dir)
+            print(tree._data, end=" ")
 
     def view_tree(tree:NodeABB):
         if (tree):
@@ -73,30 +45,65 @@ if __name__ == '__main__':
             view_tree(tree.dirArbin())
 
     def view_routes(tree:NodeABB):
+        print(f'pré-ordem: ',end="")
+        pre_order(tree)
+
+        print(f'\n')
+        print(f'in-ordem: ',end="")
+        in_order(tree)
+
+        print(f'\n')
+        print(f'pós-ordem: ',end="")
+        pos_order(tree)
+
+        print(f'\n')
+        print(f'nível: ',end="")
+        level_order(tree)
+
+    def open_file(path):
+        file = open("C:\\Users\Victo\dev\estrutura-dados-python\\treeBinarySearchJob\\" + path)
+        first_node = int(file.readline().rstrip())
+        tree = NodeABB(first_node)
         
-        preOrder(tree)
-        # in-order
-        # pos-order
-        # levels
-        pass
+        for line in file:
+            node = NodeABB(int(line.rstrip()))
+            tree.add(node)
+        print("Árvore criada com sucesso.")
+        file.close()
+
+        return tree
+
+    def menu_options():
         
-    tree = open_file()
-    print("Arvore Binária")
-    view_tree(tree)
+        option = 0
 
-    print("\n")
-    print("pre-order")
-    preOrder(tree)
+        while(option != 4):
+            print(f'================================')
+            print(f'Escolha umas das opções abaixo: ')
+            print(f'1 - Abrir Arquivo')
+            print(f'2 - Mostrar Árvore')
+            print(f'3 - Mostrar os percursos')
+            print(f'4 - Encerrar o programa')
+            option = int(input('Resposta: '))
+            print(f'================================')
 
-    print("\n")
-    print("in-order")
-    inOrder(tree)
+            if option == 1:
+                print(f'Abrindo arquivo para montar árvore...')
+                print(f'Criar arquivo (.txt) na pasta treeBinarySearchJob!')
+                path = input('Nome do arquivo (txt): ')
+                tree = open_file(path)
+                print(f'\n')
+            elif option == 2:
+                print(f'Apresentando árvore binária...')
+                view_tree(tree)
+                print(f'\n')
+            elif option == 3:
+                print(f'Apresentando os percursos...')
+                view_routes(tree)
+                print(f'\n')
+            elif option == 4:
+                tree = None
+                print(f'Encerrando programa!')
+                break
 
-    print("\n")
-    print("pos-order")
-    posOrder(tree)
-
-    print("\n")
-    print("in-level")
-    varAltura = altura(tree)
-    inLevel(tree, varAltura)
+    menu_options()
