@@ -37,6 +37,17 @@ if __name__ == '__main__':
             if tree._dir:
                 queue.enqueue(tree._dir)
             print(tree._data, end=" ")
+    
+    def height(tree:NodeABB):
+        if tree is None:
+            return -1
+        else:
+            height_left = height(tree.esqArbin())
+            height_right = height(tree.dirArbin())
+        if height_left > height_right:
+            return height_left + 1
+        else:
+            return height_right + 1
 
     def view_tree(tree:NodeABB):
         if (tree):
