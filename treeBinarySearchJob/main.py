@@ -61,7 +61,7 @@ if __name__ == '__main__':
         level_order(tree)
 
     def open_file(path):
-        file = open("C:\\Users\Victo\dev\estrutura-dados-python\\treeBinarySearchJob\\" + path)
+        file = open("./treeBinarySearchJob\\" + path)
         first_node = int(file.readline().rstrip())
         tree = NodeABB(first_node)
         
@@ -73,37 +73,49 @@ if __name__ == '__main__':
 
         return tree
 
+    def clean_terminal():
+        os.system("pause")
+        clear()
+
     def menu_options():
         
         option = 0
 
         while(option != 4):
             print(f'================================')
-            print(f'Escolha umas das opções abaixo: ')
+            print(f'Informe umas das opções abaixo: ')
             print(f'1 - Abrir Arquivo')
             print(f'2 - Mostrar Árvore')
-            print(f'3 - Mostrar os percursos')
-            print(f'4 - Encerrar o programa')
+            print(f'3 - Mostrar os Percursos')
+            print(f'4 - Encerrar o Programa')
             option = int(input('Resposta: '))
             print(f'================================')
 
             if option == 1:
-                print(f'Abrindo arquivo para montar árvore...')
+                clear()
+                print(f'========== Abrindo arquivo para montar árvore ==========')
                 print(f'Criar arquivo (.txt) na pasta treeBinarySearchJob!')
                 path = input('Nome do arquivo (txt): ')
                 tree = open_file(path)
                 print(f'\n')
+                clean_terminal()
             elif option == 2:
-                print(f'Apresentando árvore binária...')
+                clear()
+                print(f'========== Apresentando árvore binária ==========')
                 view_tree(tree)
                 print(f'\n')
+                clean_terminal()
             elif option == 3:
-                print(f'Apresentando os percursos...')
+                clear()
+                print(f'========== Apresentando os percursos ==========')
                 view_routes(tree)
                 print(f'\n')
+                clean_terminal()
             elif option == 4:
+                clear()
                 tree = None
-                print(f'Encerrando programa!')
+                print(f'Encerrando programa...')
+                clean_terminal()
                 break
 
     menu_options()

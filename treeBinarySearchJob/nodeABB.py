@@ -34,6 +34,7 @@ class NodeABB:
         return self._size
 
     def add(self, node):
+        """Add the node to the root"""
         if node._data < self._data:
             if self._esq is None:
                 self._esq = node
@@ -47,20 +48,21 @@ class NodeABB:
         self._size += 1
 
     def min(self):
-        """Retorna o menor elemento da subárvore que tem self como raiz."""
+        """Returns the smallest element of the subtree that has self as its root"""
         if self._esq is None:
             return self
         else:
             return self._esq.min()
 
     def removeMin(self):
-        """Remove o menor elemento da subárvore que tem self como raiz."""
+        """Remove the smallest element of the subtree that has self as its root"""
         if self._esq is None:
             return self._dir
         self._esq = self._esq.removeMin()
         return self
 
     def remove(self, elem):
+        """Remove the element in the tree"""
         if elem < self._data:
             self._esq = self._esq.remove(elem)
         elif elem > self._data:
