@@ -1,4 +1,12 @@
 
+"""
+    Desenvolvido por:
+        - Lucas Azevedo Zortea
+        - Marcelo Dalvi
+        - Rhayane Couto Fabres
+        - Victor Luis Moreira Rosa
+"""
+
 class ArrayQueue:
     """
     FIFO queue implementation using a Python list as underlying storage.

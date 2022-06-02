@@ -1,4 +1,12 @@
 
+"""
+    Desenvolvido por:
+        - Lucas Azevedo Zortea
+        - Marcelo Dalvi
+        - Rhayane Couto Fabres
+        - Victor Luis Moreira Rosa
+"""
+
 class NodeABB:
 
     def __init__(self, data=None, esq=None, dir=None):
